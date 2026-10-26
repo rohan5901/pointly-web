@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy · Pointly</title>
+<meta name="description" content="What the Pointly app and pointly.in do with data. Your cards and payments stay on your phone.">
+<meta name="theme-color" content="#FDFDFC" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111110" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://pointly.in/privacy/">
+<link rel="icon" href="../assets/icon-light.svg" media="(prefers-color-scheme: light)">
+<link rel="icon" href="../assets/icon-dark.svg" media="(prefers-color-scheme: dark)">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="../" aria-label="Pointly home">
+    <picture><source srcset="../assets/icon-dark.svg" media="(prefers-color-scheme: dark)"><img class="icon" src="../assets/icon-light.svg" alt=""></picture>
+    <span class="wm">po<span class="i">ı<span class="d"></span></span>ntly</span>
+  </a>
+  <a class="get" href="../#app-store">Get the app</a>
+</div></header>
+
+<!-- Keep in step with docs/analytics.md and App/Resources/PrivacyInfo.xcprivacy. -->
+<main class="wrap doc">
+  <h1>Privacy</h1>
+  <p class="intro">Your cards and payments stay on your phone. This page covers everything the Pointly app and this website do with data.</p>
+  <p class="updated">Last updated 26 October 2026</p>
+
+  <h2>What stays on your phone</h2>
+  <ul>
+    <li>The cards you pick. Pointly only asks for the card type, such as “Axis Atlas”. It never asks for a card number, CVV, PIN or bank login.</li>
+    <li>The payments you record: the amount, category, card and date, and what each one earned.</li>
+    <li>Your settings, such as the name shown on your cards and your statement dates.</li>
+  </ul>
+  <p>All of this is kept in the app on your iPhone. There’s no account and no server that holds it, so we can’t see it. Like any app’s data, it’s included in your iPhone’s own backups. Deleting a payment removes it, and deleting the app removes everything.</p>
+
+  <h2>Anonymous usage counts</h2>
+  <p>Pointly counts which features get used, through <a href="https://telemetrydeck.com/privacy/">TelemetryDeck</a>, an analytics service built for privacy. This tells us how many people use the app and what to build next.</p>
+  <ul>
+    <li><strong>What’s sent:</strong> that the app was opened, which features were used (for example, that a payment was recorded), and the card types and spending categories involved, such as “Axis Atlas” and “Flights”. TelemetryDeck adds the app version, iOS version, device model, language, region, time zone, and text size settings.</li>
+    <li><strong>What’s never sent:</strong> amounts, points, merchants, payment dates, names, or anything you type.</li>
+    <li><strong>No way back to you:</strong> each install has a random ID. It’s scrambled (hashed) on your phone and again by TelemetryDeck, so it can’t be linked to you.</li>
+  </ul>
+
+  <h2>Card rule updates</h2>
+  <p>At most once a day, Pointly downloads the latest reward rules for each card from rules.pointly.in, so rates stay current without an app update. The request carries nothing about you: no account, ID or cookies. Like any web server, our host (Google’s Firebase Hosting) sees the IP address the request comes from.</p>
+
+  <h2>What we don’t do</h2>
+  <ul>
+    <li>No ads, and no tracking across other apps or websites.</li>
+    <li>We don’t sell or share data with anyone.</li>
+    <li>Pointly asks for no permissions: not contacts, location, photos or notifications.</li>
+  </ul>
+
+  <h2>This website</h2>
+  <p>pointly.in uses no cookies and no analytics. It’s hosted on GitHub Pages, which logs visitors’ IP addresses for security, as described in <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub’s privacy statement</a>.</p>
+
+  <h2>Email</h2>
+  <p>If you write to <a href="mailto:support@pointly.in">support@pointly.in</a>, we use your address and message only to reply.</p>
+
+  <h2>Changes</h2>
+  <p>If this policy changes, we’ll update this page and the date at the top. Questions are welcome at <a href="mailto:support@pointly.in">support@pointly.in</a>.</p>
+</main>
+
+<footer class="site"><div class="wrap">
+  <span>© 2026 Pointly. Estimates, not guarantees.</span>
+  <nav><a href="./" aria-current="page">Privacy</a><a href="../support/">Support</a><a href="mailto:support@pointly.in">support@pointly.in</a></nav>
+</div></footer>
+</body>
+</html>

@@ -1,0 +1,149 @@
+/* pointly.in: the app's own theme. Radix Sand neutrals, the amber point, Inter and Inter Display.
+   Light and dark follow the device, like the app. Fonts are subset to Latin plus ₹ and ı (the wordmark's i). */
+
+@font-face { font-family: Inter; src: url(assets/fonts/Inter-Regular.woff2) format("woff2"); font-weight: 300 480; font-display: swap; }
+@font-face { font-family: Inter; src: url(assets/fonts/Inter-Medium.woff2) format("woff2"); font-weight: 481 580; font-display: swap; }
+@font-face { font-family: Inter; src: url(assets/fonts/Inter-SemiBold.woff2) format("woff2"); font-weight: 581 800; font-display: swap; }
+@font-face { font-family: InterDisplay; src: url(assets/fonts/InterDisplay-SemiBold.woff2) format("woff2"); font-weight: 100 900; font-display: swap; }
+
+:root {
+  color-scheme: light dark;
+  /* Radix Sand, light */
+  --canvas: #FDFDFC; --raised: #F9F9F8; --fill: #F1F0EF; --fill-2: #E9E8E6; --line: #DAD9D6;
+  --text: #21201C; --secondary: #63635E;
+  --point: #F29E0C; --point-grad: linear-gradient(135deg, #FFC23F, #F29E0C);
+  --gain: #2A7E3B;
+  --glow: rgba(255, 184, 48, .22);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --canvas: #111110; --raised: #191918; --fill: #222221; --fill-2: #2A2A28; --line: #3B3A37;
+    --text: #EEEEEC; --secondary: #B5B3AD;
+    --point: #FFB830;
+    --gain: #71D083;
+    --glow: rgba(255, 184, 48, .13);
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--canvas); color: var(--text); overflow-x: clip;
+  font: 450 17px/1.55 Inter, -apple-system, system-ui, sans-serif; -webkit-font-smoothing: antialiased;
+  font-feature-settings: "tnum" 1, "cv11" 1; }
+a { color: inherit; }
+img { display: block; max-width: 100%; }
+h1, h2, h3 { font-family: InterDisplay, Inter, sans-serif; font-weight: 640; margin: 0; text-wrap: balance; }
+p { margin: 0; text-wrap: pretty; }
+:focus-visible { outline: 2px solid var(--point); outline-offset: 3px; border-radius: 6px; }
+
+.wrap { width: min(1120px, 100% - 48px); margin-inline: auto; }
+
+/* "pointly", the amber point as the dot on the i */
+.wm { font-family: InterDisplay, Inter, sans-serif; font-weight: 640; letter-spacing: -.035em; line-height: 1; white-space: nowrap; }
+.wm .i { position: relative; }
+.wm .d { position: absolute; left: 50%; top: .115em; width: .205em; height: .205em; margin-left: -.1025em;
+  border-radius: 50%; background: var(--point-grad); }
+
+/* The point: an amber dot used as a bullet */
+.pt { width: 10px; height: 10px; border-radius: 50%; background: var(--point-grad); flex: none; }
+
+/* ---------- Top bar and footer, on every page ---------- */
+
+header.top { padding: 22px 0; }
+header.top .wrap { display: flex; justify-content: space-between; align-items: center; }
+.brand { display: inline-flex; gap: 10px; align-items: center; text-decoration: none; }
+.brand .wm { font-size: 24px; }
+/* The app icon: ivory in light, ink in dark */
+.brand .icon { width: 32px; height: 32px; border-radius: 22.5%; box-shadow: 0 0 0 .5px var(--line); }
+header.top a.get { font-size: 15px; font-weight: 540; text-decoration: none; padding: 9px 16px; border-radius: 99px; background: var(--fill); }
+header.top a.get:hover { background: var(--fill-2); }
+
+footer.site { padding: 40px 0 56px; color: var(--secondary); font-size: 14px; }
+footer.site .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: center; justify-content: space-between; }
+footer.site nav { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+footer.site a { text-decoration: none; }
+footer.site a:hover, footer.site a[aria-current] { color: var(--text); }
+
+/* ---------- Home ---------- */
+
+.hero { text-align: center; padding: 64px 0 56px; }
+.hero h1 { font-size: clamp(42px, 6.4vw, 76px); line-height: 1.02; letter-spacing: -.035em; max-width: 16ch; margin: 0 auto; }
+.hero p.lede { font-size: clamp(18px, 1.9vw, 21px); color: var(--secondary); max-width: 33em; margin: 22px auto 34px; }
+
+/* Apple's official badge; keep its own proportions and clear space */
+.badge { display: inline-block; line-height: 0; border-radius: 9px; }
+.badge img { height: 54px; width: auto; }
+.badge-note { color: var(--secondary); font-size: 14px; margin-top: 12px; }
+
+/* A month across cards, as History shows it */
+.stage { position: relative; isolation: isolate; margin-top: 52px; }
+.stage::before { content: ""; position: absolute; left: 50%; top: 50%; width: 1000px; height: 720px; max-width: 160vw; transform: translate(-50%, -50%);
+  z-index: -1; background: radial-gradient(closest-side, var(--glow), transparent); }
+.month { width: min(500px, 100%); margin: 0 auto; text-align: left; background: var(--raised);
+  border-radius: 30px; padding: 26px 28px 24px; box-shadow: 0 0 0 1px var(--fill-2), 0 30px 70px -40px rgba(0,0,0,.25); }
+.month .head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+.month .head h2 { font-size: 24px; letter-spacing: -.015em; }
+.month .head span { color: var(--secondary); font-size: 15px; }
+.month ul { list-style: none; margin: 0; padding: 0; }
+.month li { display: flex; align-items: center; gap: 14px; padding: 13px 0; }
+.month li .name { flex: 1; min-width: 0; }
+.month li b { display: block; font-weight: 560; font-size: 16px; }
+.month li small { color: var(--secondary); font-size: 13.5px; }
+.month li .gain { text-align: right; white-space: nowrap; }
+.month li .gain strong { display: block; color: var(--gain); font-family: InterDisplay, Inter, sans-serif; font-weight: 640; font-size: 21px; letter-spacing: -.01em; }
+
+/* Card swatches: each card's own colours, not its artwork */
+.sw { width: 38px; height: 25px; border-radius: 5px; flex: none; position: relative; box-shadow: 0 0 0 .5px rgba(0,0,0,.2), 0 2px 6px -2px rgba(0,0,0,.35); }
+.sw::after { content: ""; position: absolute; right: 5px; top: 5px; width: 7px; height: 7px; border-radius: 50%; }
+.sw.atlas { background: linear-gradient(135deg, #1C1C1F, #050506); } .sw.atlas::after { background: #C2185B; }
+.sw.regalia { background: linear-gradient(135deg, #3E2719, #1A0F09); } .sw.regalia::after { background: #EBCB84; }
+.sw.sbi { background: linear-gradient(135deg, #6544A2, #4A2F80); } .sw.sbi::after { background: #FFE100; }
+
+.caps { margin-top: 10px; padding-top: 18px; border-top: 1px solid var(--fill-2); display: grid; gap: 16px; }
+.cap .line { display: flex; justify-content: space-between; gap: 12px; font-size: 14px; color: var(--secondary); margin-bottom: 7px; }
+.cap .line span:last-child { color: var(--text); font-weight: 540; white-space: nowrap; }
+.bar { height: 5px; border-radius: 3px; background: var(--fill-2); overflow: hidden; }
+.bar i { display: block; height: 100%; border-radius: 3px; background: var(--accent); }
+.cap.atlas { --accent: #cb1d63; } .cap.sbi { --accent: #6550b9; }
+@media (prefers-color-scheme: dark) { .cap.atlas { --accent: #ff92ad; } .cap.sbi { --accent: #baa7ff; }
+  .sw { box-shadow: 0 0 0 1px rgba(255,255,255,.14); } }
+
+.points { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding: 96px 0 72px; }
+.points h2 { font-size: 21px; letter-spacing: -.015em; display: flex; gap: 12px; align-items: center; margin-bottom: 8px; }
+.points p { color: var(--secondary); font-size: 16px; }
+
+.banks { text-align: center; color: var(--secondary); font-size: 15px; padding: 28px 0 40px; border-top: 1px solid var(--fill-2); }
+
+/* ---------- Privacy, support and other text pages ---------- */
+
+.doc { max-width: 680px; padding: 56px 0 64px; }
+.doc h1 { font-size: clamp(38px, 5vw, 52px); line-height: 1.05; letter-spacing: -.03em; }
+.doc .intro { font-size: 19px; color: var(--secondary); margin-top: 16px; }
+.doc .updated { color: var(--secondary); font-size: 14px; margin-top: 12px; }
+.doc h2 { font-size: 23px; letter-spacing: -.015em; margin: 48px 0 12px; }
+.doc h3 { font-size: 18px; letter-spacing: -.01em; margin: 30px 0 6px; }
+.doc p + p, .doc p + ul, .doc ul + p { margin-top: 12px; }
+.doc ul { margin: 0; padding-left: 1.25em; }
+.doc li + li { margin-top: 6px; }
+.doc li::marker { color: var(--point); }
+.doc a { text-decoration-color: var(--line); text-underline-offset: 3px; }
+.doc a:hover { text-decoration-color: currentColor; }
+.doc a.button { display: inline-block; margin-top: 24px; padding: 12px 22px; border-radius: 99px; background: var(--text); color: var(--canvas);
+  font-weight: 560; text-decoration: none; }
+.doc a.button:hover { opacity: .88; }
+
+@media (max-width: 760px) {
+  header.top a.get { display: none; }
+  .hero { padding: 40px 0 32px; }
+  .points { grid-template-columns: 1fr; gap: 28px; padding: 64px 0 48px; }
+  .month { padding: 22px 20px 20px; }
+  .month li { gap: 12px; }
+  .sw { width: 32px; height: 21px; }
+  .doc { padding: 32px 0 48px; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rise { animation: rise .6s cubic-bezier(.2, .7, .2, 1) both; }
+  .rise.d2 { animation-delay: .16s; } .rise.d3 { animation-delay: .24s; }
+  @keyframes rise { from { opacity: 0; transform: translateY(12px); } }
+}
