@@ -1,6 +1,6 @@
 # pointly.in
 
-The website for Pointly, the iPhone app that tracks reward points, miles and cashback across all your credit cards.
+The website for Pointly, the iPhone app that tells you which of your credit cards to use before you pay.
 
 Plain HTML and CSS, no build step. GitHub Pages publishes the `main` branch as it is, at [pointly.in](https://pointly.in).
 
